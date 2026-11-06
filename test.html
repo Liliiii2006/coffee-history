@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3: DOM-Тест «Грамотность»</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="logo-bean"></span>
+            <span class="logo-text">Зерно</span>
+        </a>
+        <a href="projects.html" class="nav-link">Учебные проекты</a>
+    </header>
+
+    <main class="content test-content">
+        <div class="task-header">
+            <p class="task-number">Задание 3</p>
+            <h2 class="task-title">DOM-Тест: «Грамотность»</h2>
+            <p class="task-description">
+                Вариант 3. Вопросы выводятся по одному. После ответа блоки
+                по очереди уезжают вниз, появляется маркер, затем — следующий вопрос.
+            </p>
+        </div>
+
+        <p id="test-status" class="test-status" hidden>Вопросы закончились</p>
+
+        <div id="test-area" class="test-area"></div>
+
+        <div id="test-result" class="test-result" hidden></div>
+
+        <!-- Финальный обзор всех вопросов (после статистики) -->
+        <div id="test-review" class="test-review" hidden></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Мой сайт</p>
+        <p>Контакты: example@email.com</p>
+    </footer>
+
+    <script src="test.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+/* Общие */
+.test-content { max-width: 1100px; }
+
+.test-status {
+    margin: 0 0 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #A57B55;
+    text-align: center;
+    letter-spacing: 1px;
+    animation: fadeIn .4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Область одного вопроса  */
+.test-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+/*  Карточка вопроса */
+.q-card {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background: #fffdf8;
+    border: 2px solid #eadfce;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(59, 42, 32, 0.07);
+    animation: cardIn .45s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)     scale(1); }
+}
+
+@keyframes cardOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(-20px) scale(0.97); }
+}
+
+.q-card--leaving {
+    animation: cardOut .4s ease forwards;
+}
+
+/* Блок вопроса  */
+.q-question {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3B2A20;
+    padding: 12px 44px 12px 14px;
+    background: #f3ead9;
+    border-radius: 12px;
+    transition: background .2s;
+}
+
+/* Маркер  */
+.q-marker {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%) scale(0.3);
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity .25s, transform .25s;
+}
+.q-marker--ok   { color: #2fa84f; }
+.q-marker--bad  { color: #d33a3a; }
+.q-marker--show { opacity: 1; transform: translateY(-50%) scale(1); }
+
+/* Блок ответов — под вопросом  */
+.q-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.answer {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #3B2A20;
+    padding: 11px 14px;
+    background: #faf7f0;
+    border: 1.5px solid #eadfce;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .2s, opacity .35s;
+}
+
+.answer:hover {
+    background: #f3e6d2;
+    border-color: #A57B55;
+    transform: translateX(3px);
+}
+
+.answer:active {
+    outline: 2px solid #A57B55;
+    outline-offset: 1px;
+    transform: scale(0.985);
+}
+
+/* После ответа — не кликаются */
+.q-answers--locked .answer { pointer-events: none; }
+
+/* Правильный / неправильный выбранный */
+.answer--correct {
+    background: #e3f6e6 !important;
+    border-color: #2fa84f !important;
+    font-weight: 600;
+    transform: scale(1.02);
+    box-shadow: 0 4px 14px rgba(47,168,79,.20);
+}
+
+.answer--wrong {
+    background: #fbe4e4 !important;
+    border-color: #d33a3a !important;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(211,58,58,.18);
+}
+
+/* Пояснение внутри правильного */
+.answer__note {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #2fa84f;
+    font-size: 13px;
+    font-weight: 400;
+    color: #276b39;
+    line-height: 1.5;
+}
+
+/* Метка «ваш ответ» для неверного */
+.answer__label {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #d33a3a;
+    border-radius: 8px;
+    vertical-align: middle;
+}
+
+/* Уезжание блоков вниз */
+@keyframes slideDown {
+    0%   { transform: translateY(0);    opacity: 1; }
+    100% { transform: translateY(90px); opacity: 0; }
+}
+.answer--leaving { animation: slideDown .55s ease-in forwards; }
+
+/* Статистика */
+.test-result {
+    margin: 0 auto 30px;
+    max-width: 560px;
+    padding: 24px 28px;
+    background: #3B2A20;
+    color: #f7efe3;
+    border-radius: 16px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(59,42,32,.25);
+    animation: fadeIn .45s ease;
+}
+
+.test-result h3 {
+    margin: 0 0 10px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+.test-result .score {
+    font-size: 36px;
+    font-weight: 700;
+    color: #f5c26b;
+    margin: 4px 0 12px;
+}
+
+.test-result p {
+    margin: 0;
+    font-size: 15px;
+    color: #e6d9c6;
+}
+
+/* Финальный обзор */
+.test-review {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 720px;
+    margin: 0 auto;
+    animation: fadeIn .5s ease;
+}
+
+.review-item {
+    padding: 12px 16px;
+    background: #fffdf8;
+    border: 1.5px solid #eadfce;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: #3B2A20;
+    cursor: pointer;
+    text-align: left;
+    transition: background .2s, border-color .2s;
+}
+
+.review-item:hover {
+    background: #f6efdf;
+    border-color: #A57B55;
+}
+
+.review-item__head {
+    display: flex;
+    align-items:flex-start;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.review-item__mark {
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+    margin-top: 1px; 
+}
+
+.review-item__answer {
+    display: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #2fa84f;
+    font-weight: 400;
+    color: #276b39;
+    line-height: 1.5;
+}
+
+.review-item--open .review-item__answer { display: block; }
+
+/*  Адаптив*/
+@media (max-width: 480px) {
+    .q-question { font-size: 15px; }
+    .answer     { font-size: 13.5px; }
+    .test-result .score { font-size: 30px; }
+}

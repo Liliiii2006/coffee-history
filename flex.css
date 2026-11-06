@@ -1,0 +1,271 @@
+.scene-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.scene-toggle,
+.step3-toggle {
+    display: none;
+}
+
+.flex-scene {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+
+    border: 6px solid transparent;
+    background:
+        linear-gradient(to top, #6ad86a 0%, #ffffff 45%, #2a3f9e 100%) padding-box,
+        linear-gradient(to bottom left, #ff7ac1 0%, #e51f82 100%) border-box;
+}
+
+.flex-el {
+    position: absolute;
+    object-fit: contain;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+    z-index: 2;
+}
+
+.stage-start {
+    position: absolute;
+    inset: 0;
+}
+
+.start-click-area {
+    position: absolute;
+    inset: 0;
+    display: block;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.flex-el-combo {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.flex-el-mask {
+    left: 0;
+    bottom: 0;
+    width: 55%;
+    height: 100%;
+    transform-origin: 50% 90%;
+}
+
+.flex-el-rocket {
+    right: 0;
+    bottom: 0;
+    width: 55%;
+    height: 100%;
+    transform-origin: 50% 90%;
+}
+
+.stage-start:hover .flex-el-combo {
+    opacity: 0;
+}
+
+.stage-start:hover .flex-el-mask,
+.stage-start:hover .flex-el-rocket {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.stage-start:hover .flex-el-mask:hover {
+    animation: kachanie 1.4s ease-in-out infinite;
+}
+
+@keyframes kachanie {
+    0%   { transform: rotate(-8deg); }
+    50%  { transform: rotate(8deg);  }
+    100% { transform: rotate(-8deg); }
+}
+
+.stage-start:hover .flex-el-rocket:hover {
+    animation: prygat 0.6s ease-in-out infinite;
+}
+
+@keyframes prygat {
+    0%   { transform: translateY(0);     }
+    50%  { transform: translateY(-14px); }
+    100% { transform: translateY(0);     }
+}
+
+.stage-end {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+}
+
+.scene-toggle:checked ~ .flex-scene .stage-start {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scene-toggle:checked ~ .flex-scene .stage-end {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.layer-2 {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.mask-box {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mask-label {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    display: block;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.mask-5 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.rocket-box {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.rocket-4 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18%;
+    height: 18%;
+    margin-left: -9%;
+    margin-top: -9%;
+    object-fit: contain;
+    transform-origin: 50% 50%;
+    pointer-events: auto;
+    z-index: 3;
+    transform: rotate(0deg) translateX(70px) rotate(0deg);
+}
+
+.rocket-4:hover {
+    animation: spiral 3s linear infinite;
+}
+
+@keyframes spiral {
+    0%   { transform: rotate(0deg)   translateX(70px)  rotate(0deg);   }
+    100% { transform: rotate(360deg) translateX(70px)  rotate(-360deg);}
+}
+
+.bubble {
+    position: absolute;
+    padding: 2px 10px;
+    border-radius: 10px;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 6;
+}
+
+.bubble-one {
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%);
+}
+
+.mask-box:hover .bubble-one {
+    opacity: 1;
+}
+
+.layer-3 {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+    z-index: 3;
+}
+
+.step3-toggle:checked ~ .layer-2 {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.step3-toggle:checked ~ .layer-3 {
+    opacity: 1;
+    pointer-events: auto;
+    animation: truska 0.3s ease-in-out infinite;
+}
+
+.finger-main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.finger-tip {
+    position: absolute;
+    left: 0%;
+    top: 47%;
+    width: 40%;
+    height: 25%;
+    object-fit: contain;
+    transform-origin: 50% 90%;
+    animation: mahanie 0.45s ease-in-out infinite alternate;
+}
+
+@keyframes mahanie {
+    from { transform:  rotate(-18deg); }
+    to   { transform:  rotate(18deg);  }
+}
+
+@keyframes truska {
+    0%, 100% { transform: translateX(-3px); }
+    50%      { transform: translateX(3px);  }
+}
+
+.bubble-two {
+    left: 6px;
+    bottom: 20px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}
+
+.step3-toggle:checked ~ .layer-3 .bubble-two {
+    opacity: 1;
+}

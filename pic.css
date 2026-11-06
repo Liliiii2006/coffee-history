@@ -1,0 +1,230 @@
+.pic {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background:
+        linear-gradient(to bottom, #4262BA 0%, #d5edff 100%) padding-box,
+        linear-gradient(to bottom left, #ffffff 0%, #e51f82 100%) border-box;
+    border: 12px solid transparent;
+    margin: 20px auto;
+    overflow: hidden; /* Чтобы элементы не вышли за рамки */
+}
+
+/* Трава */
+.pic-grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: repeating-linear-gradient(
+        45deg,
+        #05CC05,
+        #05CC05 10px,
+        #056E12 5px,
+        #056E12 20px
+    );
+    /* треугольная форма  */
+    clip-path: polygon(
+        0 100%, 0 70%,      
+        12% 0,25% 70%,     
+        38% 0,50% 70%,     
+        62% 0,75% 70%,     
+        88% 0,100% 70%,    
+        100% 100%    
+    );
+    z-index: 4;
+}
+
+/* Грибы */
+/* Общие стили для ножек грибов */
+.pic-mushroom-left::after,
+.pic-mushroom-right::after {
+    content: '';
+    position: absolute;
+    background: #f5e6d3; 
+    border: 2px solid #8b4513;
+    border-radius: 100% 100% 100% 100%;
+}
+
+/* Общие стили для шляпок */
+.pic-mushroom-right::before,
+.pic-mushroom-left::before
+ {
+    content: '';
+    position: absolute;
+    background: radial-gradient(circle at 55% 30%,  #c9a69a 10%, #835e3f 60%, #5c2e0e 100%); /* Коричневая шляпка с белым бликом */
+    z-index: 1;
+} 
+
+
+/* Левый гриб */
+.pic-mushroom-left {
+    position:absolute;
+    bottom: 0px;
+    left: -5px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
+.pic-mushroom-left::after {
+    bottom: 0;
+    left: 20px;
+    width: 35px;
+    height: 90px;
+    z-index: 0;
+}
+.pic-mushroom-left::before {
+    top: 0;
+    left: -2px;
+    width: 85px;
+    height: 45px;
+    border-radius: 45px 45px 0 0;
+    z-index: 1;
+}
+
+/* Правый гриб */
+.pic-mushroom-right {
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    width: 70px;
+    height: 80px;
+    z-index: 3;
+    transform: rotate(30deg);
+}
+.pic-mushroom-right::after {
+    bottom: 0px;
+    left: 37px;
+    width: 25px;
+    height: 70px;
+    z-index: 2;
+}
+.pic-mushroom-right::before {
+    top: -10px;
+    left: 20px;
+    width: 60px;
+    height: 35px;
+    border-radius: 35px 35px 0 0;
+    z-index: 3;
+}
+
+/* Облако из двух овалов */
+.pic-cloud {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    width: 90px;
+    height: 40px;
+    background: linear-gradient(to left, #ffffff 20%, #5270C8 120%);
+    border-radius: 50%;
+    filter: blur(2px); 
+    z-index: 0;
+}
+
+.pic-cloud::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 65px;
+    width: 70px;
+    height: 40px;
+    background: linear-gradient(to right, #ffffff 15%, #5270C8 120%);
+    border-radius: 50%;
+}
+
+
+/* Стрекоза */
+.pic-dragonfly {
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    width: 70px;
+    height: 60px;
+    transform: rotate(-35deg);
+    z-index: 3;
+}
+
+.pic-dragonfly .body {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    width: 60px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #b79800;
+    background: #fcd92b;
+    z-index: 2;
+}
+.pic-dragonfly .body::after {
+    content: '';
+    position: absolute;
+    top:-1px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #b79800;
+    background: #fcd92b;
+    z-index: 3;
+}
+
+.pic-dragonfly .eyes {
+    position: absolute;
+    top: 25px;
+    left: 16px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #171717;
+    z-index: 4;
+    transform: rotate(80deg);   
+}
+
+.pic-dragonfly .eyes::after {
+    content: '';                
+    position: absolute;         
+    top: 0;
+    left: 8px;                  
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #171717;
+}
+
+.pic-dragonfly .wing {
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    border: 1.5px solid #4169e1;
+    border-radius: 50%;
+    background: rgba(100, 149, 237, .65);
+    z-index: 1;
+}
+
+.pic-dragonfly .wing-1 {
+    top: 1px;
+    left: 30px;
+    transform: rotate(60deg);
+}
+
+.pic-dragonfly .wing-2 {
+    top: 1px;
+    left: 45px;
+    transform: rotate(-60deg);
+}
+
+.pic-dragonfly .wing-3 {
+    top: 45px;
+    left: 30px;
+    transform: rotate(-60deg);
+}
+
+.pic-dragonfly .wing-4 {
+    top: 45px;
+    left: 45px;
+    transform: rotate(60deg);
+}
+
+
+

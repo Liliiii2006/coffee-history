@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2: Маск и ракета</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="flex.css">
+</head>
+<body>
+
+   <header>
+        <a href="index.html" class="logo">
+            <span class="logo-bean"></span>
+            <span class="logo-text">Зерно</span>
+        </a>
+        <nav class="nav-links">
+            <a href="projects.html" class="nav-link active">Учебные проекты</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="task-header">
+            <p class="task-number">Задание 2</p>
+            <h2 class="task-title">Анимированный ролик на Flexbox</h2>
+            <p class="task-description">
+                Компонент 200×200 px. По наведению и нажатию
+                содержимое меняется.
+            </p>
+        </div>
+
+        <div class="scene-wrapper">
+            <input type="checkbox" id="scene-toggle" class="scene-toggle">
+
+            <div class="flex-scene">
+
+                <div class="stage stage-start">
+                    <label for="scene-toggle" class="start-click-area" aria-label="Перейти к следующей сцене">
+                        <img class="flex-el flex-el-combo"  src="var4/mask1.png" alt="Маск и ракета">
+                        <img class="flex-el flex-el-mask"   src="var4/mask3.png" alt="Маск">
+                        <img class="flex-el flex-el-rocket" src="var4/mask2.png" alt="Ракета">
+                    </label>
+                </div>
+
+                <div class="stage stage-end">
+                    <input type="checkbox" id="step3-toggle" class="step3-toggle">
+
+                    <div class="layer layer-2">
+                        <div class="mask-box">
+                            <label for="step3-toggle" class="mask-label">
+                                <img class="mask-5" src="var4/mask5.png" alt="Маск">
+                            </label>
+                            <span class="bubble bubble-one">Как тебе такое?</span>
+                        </div>
+
+                        <div class="rocket-box">
+                            <img class="rocket-4" src="var4/mask4.png" alt="Ракета">
+                        </div>
+                    </div>
+
+                    <div class="layer layer-3">
+                        <img class="finger-main" src="var4/finger3.png" alt="Новый Маск">
+                        <img class="finger-tip"  src="var4/finger2.png" alt="Палец">
+                        <span class="bubble bubble-two">Меня не удивишь</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Мой сайт</p>
+        <p>Контакты: example@email.com</p>
+    </footer>
+
+</body>
+</html>
+
